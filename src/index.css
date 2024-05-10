@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@media only screen and (max-width: 486px){
+    .buton{
+        margin-left: 78px;
+    }
+    .log{
+        display: none;
+    }
+    .mobile{
+        margin-left: 37px;
+    }
+}
+
+body,html{
+    font-family:'Times New Roman', Times, serif;
+    width: 100%;
+    overflow-x: hidden;
+}

@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { GrGithub } from "react-icons/gr";
-import { Link,  } from "react-router-dom";
+import { Link, useLocation, useNavigate,  } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -10,6 +10,9 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
 const {loginUser,error,googleLogin,setError} = useContext(AuthContext)
+
+const navigate = useNavigate();
+const location = useLocation();
 
   const handelLogin = e =>{
     e.preventDefault()
@@ -25,6 +28,7 @@ const {loginUser,error,googleLogin,setError} = useContext(AuthContext)
 
     .then(result =>{
         toast.success('Login Successfully')
+        navigate(location?.state ? location?.state : '/')
        
         console.log(result.user)
         
