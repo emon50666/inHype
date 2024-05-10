@@ -48,7 +48,7 @@ const location = useLocation();
         <div className="bg-gray-100 md:p-20">
         <div className="container mx-auto mb-20 ">
        <h1 className="text-3xl text-center font-bold font-serif mb-5 pt-10 ">Login Now</h1>
-       <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-yellow-400 shadow-gray-300 -300/50 justify-center mx-auto">
+       <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-[#9268EB] shadow-gray-300 -300/50 justify-center mx-auto">
  <form onSubmit={handelLogin}  className="card-body">
  
    <div className="form-control">
@@ -66,7 +66,7 @@ const location = useLocation();
     </div>
    </div>
   <div className="form-control mt-2 mb-2 ">
-   <button   className="btn bg-[#FFE100] hover:bg-black text-black hover:text-white font-bold text-base font-serif ">Login</button>
+   <button   className="btn bg-[#9268EB] hover:bg-black text-white  hover:text-white font-bold text-base font-serif ">Login</button>
  </div> 
  
    
@@ -85,7 +85,7 @@ const location = useLocation();
         <button> <GrGithub></GrGithub> </button>
 
       </div>
-<p className="text-sm flex text-center mx-auto gap-2"> Dont Have A Account ? <Link to={'/register'}> <p className="font-serif text-sm  underline underline-offset-2 text-[#5c2eff] ">Register</p></Link> </p>
+<p className="text-sm flex text-center mx-auto gap-2"> Dont Have An Account ? <Link to={'/register'}> <p className="font-serif text-sm  underline underline-offset-2 text-[#5c2eff] ">Register</p></Link> </p>
 
 {
         error && <p className="text-red-500  font-sm mt-2 mb-5 text-center ">{error}</p>

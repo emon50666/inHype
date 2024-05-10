@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
 const {registerUser,error,setError} = useContext(AuthContext)
+const navigate = useNavigate();
 
     const handelRegister = e =>{
         e.preventDefault()
@@ -44,6 +45,7 @@ const {registerUser,error,setError} = useContext(AuthContext)
 
         .then(result =>{
             toast.success('Account Create Successfully')
+            navigate('/')
            
             console.log(result.user)
               // update profile
@@ -61,7 +63,7 @@ const {registerUser,error,setError} = useContext(AuthContext)
         <div className="bg-gray-100 md:p-20">
         <div className="container mx-auto mb-20 ">
        <h1 className="text-3xl text-center font-bold font-serif mb-5 pt-10">Register Now</h1>
-       <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-yellow-400 shadow-gray-300 -300/50 justify-center mx-auto">
+       <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-[#9268EB] shadow-gray-300 -300/50 justify-center mx-auto">
  <form  onSubmit={handelRegister} className="card-body">
  <div className="form-control">
      <label className="label">
@@ -90,10 +92,10 @@ const {registerUser,error,setError} = useContext(AuthContext)
     </div>
    </div>
   <div className="form-control mt-2 mb-2 ">
-   <button   className="btn bg-[#FFE100] hover:bg-black text-black hover:text-white font-bold text-base font-serif ">Register</button>
+   <button   className="btn bg-[#9268EB] hover:bg-black text-white hover:text-white font-bold text-base font-serif ">Register</button>
  </div> 
  
-   <p className="text-sm flex text-center mx-auto gap-2"> All Ready Have A Account ? <Link to={'/login'}> <p className="font-serif text-sm  underline underline-offset-2 text-[#5c2eff] ">Login</p></Link> </p>
+   <p className="text-sm flex text-center mx-auto gap-2"> All Ready Have An  Account ? <Link to={'/login'}> <p className="font-serif text-sm  underline underline-offset-2 text-[#5c2eff] ">Login</p></Link> </p>
   
 
    {
