@@ -11,7 +11,9 @@ import AddBlog from "../AddBlog/AddBlog";
 import AllBlogs from "../AllBlogs/AllBlogs";
 import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
 import Wishlist from "../WishlistPage/Wishlist";
-import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+
+import BlogCard from "../AddBlog/BlogCard";
+
 
 
 
@@ -22,7 +24,9 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
       children:[
         {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/blog')
+       
         },
         {
             path: '/login',
@@ -38,7 +42,7 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
         },
         {
           path: '/all-blogs',
-          element: <PrivateRoute><AllBlogs></AllBlogs></PrivateRoute>
+          element: <AllBlogs></AllBlogs>
         },
         {
           path: '/feature-blog',
@@ -47,7 +51,12 @@ import PrivateRoute from "../../PrivateRoute/PrivateRoute";
         {
           path: '/wishlist',
           element: <Wishlist></Wishlist>
+        },
+        {
+          path: '/blog-card',
+          element: <BlogCard></BlogCard>,
         }
+      
       ]
     },
   ]);
