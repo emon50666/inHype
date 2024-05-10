@@ -1,14 +1,40 @@
 
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { GrGithub } from "react-icons/gr";
 import { Link,  } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 
 
 const Login = () => {
+const {loginUser,error,googleLogin,setError} = useContext(AuthContext)
 
+  const handelLogin = e =>{
+    e.preventDefault()
+    const form = e.target
+   
+    const email = form.email.value
 
-    
+    const password = form.password.value
+   
+  
+
+    loginUser(email,password)
+
+    .then(result =>{
+        toast.success('Login Successfully')
+       
+        console.log(result.user)
+        
+    })
+    .catch(error =>{
+        console.log(error.message)
+        setError(error.message.slice(9))
+    })
+
+}
 
 
 
@@ -19,7 +45,7 @@ const Login = () => {
         <div className="container mx-auto mb-20 ">
        <h1 className="text-3xl text-center font-bold font-serif mb-5 pt-10 ">Login Now</h1>
        <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-yellow-400 shadow-gray-300 -300/50 justify-center mx-auto">
- <form   className="card-body">
+ <form onSubmit={handelLogin}  className="card-body">
  
    <div className="form-control">
   
@@ -51,17 +77,20 @@ const Login = () => {
 
   <div className="mt-6 mb-4 text-center text-[35px] flex justify-center gap-16 ">
         
-        <button> <FcGoogle></FcGoogle> </button>
+        <button onClick={()=> googleLogin()}> <FcGoogle></FcGoogle> </button>
         <button> <GrGithub></GrGithub> </button>
 
       </div>
 <p className="text-sm flex text-center mx-auto gap-2"> Dont Have A Account ? <Link to={'/register'}> <p className="font-serif text-sm  underline underline-offset-2 text-[#5c2eff] ">Register</p></Link> </p>
 
+{
+        error && <p className="text-red-500  font-sm mt-2 mb-5 text-center ">{error}</p>
+      }
  </form>
  
   
 </div>
-
+<Toaster />
    </div>
 
    </div>

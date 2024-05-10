@@ -5,7 +5,7 @@ import { updateProfile } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
-const {registerUser} = useContext(AuthContext)
+const {registerUser,error,setError} = useContext(AuthContext)
 
     const handelRegister = e =>{
         e.preventDefault()
@@ -16,6 +16,29 @@ const {registerUser} = useContext(AuthContext)
         const password = form.password.value
         const newUser = {name,email,image,password}
         console.log(newUser)
+
+        setError('')
+
+
+
+        if(password.length <6){
+          setError('place 6 digit password');
+          return;
+          
+      }
+        if(!/[A-Z]/.test(password) ){
+          setError('Give an uppercase &  Lowercase Letter (A - Z)');
+          return;
+         }
+         if(!/[a-z]/.test(password) ){
+          setError('Give an uppercase & Lowercase  Letter (a,z)');
+          return;
+         }
+         if(!/[0-9]/.test(password) ){
+          setError('Give an numeric character (0-9)');
+          return;
+         }
+
 
         registerUser(email,password)
 
@@ -73,9 +96,9 @@ const {registerUser} = useContext(AuthContext)
    <p className="text-sm flex text-center mx-auto gap-2"> All Ready Have A Account ? <Link to={'/login'}> <p className="font-serif text-sm  underline underline-offset-2 text-[#5c2eff] ">Login</p></Link> </p>
   
 
-   {/* {
+   {
         error && <p className="text-red-500  font-sm mt-2 mb-5 text-center ">{error}</p>
-      } */}
+      }
 
  </form>
 </div>
