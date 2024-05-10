@@ -1,17 +1,29 @@
-
+import { Link } from 'react-router-dom';
+import banner_1 from '../../assets/food-1.png'
 
 const Home = () => {
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
-  <div className="hero-content text-center">
-    <div className="max-w-md">
-      <h1 className="text-5xl font-bold">Hello there</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button className="btn btn-primary">Get Started</button>
-    </div>
+
+            <div className="hero min-h-screen" style={{backgroundImage: `url(${banner_1})`}}>
+                <div className="hero-overlay bg-opacity-75"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-lg pt-16">
+                        <h1 className="mb-5 text-5xl md:text-8xl text-white  font-bold">Fresh Fields Farmstand</h1>
+                        
+                        <Link to={'/add-blog'}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-2xl pb-2  pl-4 pr-4 pt-2">Get Started</button></Link>
+                    </div>
+                </div>
+            </div>
+
+
+{/* recent blog section */}
+<section className="mt-10 mb-10">
+  <div>
+  <h1 className="text-3xl font-serif text-center font-bold mb-4">Recent Blog</h1>
+
   </div>
-</div>
+</section>
         </div>
     );
 };
