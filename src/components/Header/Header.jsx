@@ -7,9 +7,9 @@ import logo from '../../assets/Screenshot_6.png'
 const Header = () => {
   const {user,logOutUser} = useContext(AuthContext)
     return (
-        <div>
-       <div className="navbar container mx-auto ">
-  <div className="navbar-start">
+        <div className="bg-white  fixed top-0 w-full z-10 shadow-sm shadow-violet-100">
+       <div className="navbar container mx-auto    ">
+  <div className="navbar-start ">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -76,7 +76,7 @@ const Header = () => {
   </div> : <>
  <div className="log">
  <Link to={'/register'}><button className=" bg-[#9268EB]  pb-2  pl-4 pr-4 pt-2 capitalize text-white font-bold font-serif rounded-lg mr-5">register</button></Link>
-  <Link to={'/login'}><button className="border-[#795FE9] border pb-2  font-bold font-serif rounded-lg text-[#795FE9] hover:bg-[#9268EB]  hover:text-white pl-4 pr-4 pt-2 capitalize ">register</button></Link>
+  <Link to={'/login'}><button className="border-[#795FE9] border pb-2  font-bold font-serif rounded-lg text-[#795FE9] hover:bg-[#9268EB]  hover:text-white pl-4 pr-4 pt-2 capitalize ">Login</button></Link>
  </div>
   </>
 

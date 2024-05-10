@@ -53,14 +53,14 @@ const location = useLocation();
  
    <div className="form-control">
   
-     <input name="email"  type="email" placeholder="Email" className="input input-bordered" required  />
+     <input name="email"  type="email" placeholder="Email" className="input input-bordered"   />
     
    </div>
   
    <div className="form-control ">
   
     <div className="flex">
-    <input name="password"  type=   "password" placeholder="Password" className="input input-bordered w-full" required
+    <input name="password"  type=   "password" placeholder="Password" className="input input-bordered w-full" 
      />
  
     </div>
@@ -81,7 +81,7 @@ const location = useLocation();
 
   <div className="mt-6 mb-4 text-center text-[35px] flex justify-center gap-16 ">
         
-        <button onClick={()=> googleLogin()}> <FcGoogle></FcGoogle> </button>
+        <button onClick={()=> googleLogin()} > <FcGoogle></FcGoogle> </button>
         <button> <GrGithub></GrGithub> </button>
 
       </div>

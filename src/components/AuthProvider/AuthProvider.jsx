@@ -4,6 +4,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import auth from "../../FIrebase/Firebase";
 
 
+
 export const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
@@ -11,6 +12,7 @@ const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
     const [error,setError] = useState('')
+ 
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -30,7 +32,9 @@ const loginUser = (email,password) =>{
 // google login
 
 const googleLogin = () =>{
-    return signInWithPopup(auth,googleProvider)
+   return signInWithPopup(auth,googleProvider)
+    
+   
 }
 
 
