@@ -3,10 +3,14 @@ import banner_1 from '../../assets/food-1.png'
 import BlogCard from '../AddBlog/BlogCard';
 import news from '../../assets/news.png'
 
+import toast, { Toaster } from 'react-hot-toast';
+
 const Home = () => {
+  const notify = () => toast.success(' Thank you for subscribing to our newsletter.');
   const blogs = useLoaderData()
     return (
         <div>
+         
 
             <div className="hero min-h-screen" style={{backgroundImage: `url(${banner_1})`}}>
                 <div className="hero-overlay bg-opacity-75"></div>
@@ -49,13 +53,14 @@ const Home = () => {
         <h1 className="text-3xl font-serif text-center font-bold mb-10">Newsletter </h1>
         </div>
         <div className='grid md:grid-cols-2'>
-          <div className='items-center '>
-            <h1 className='text-3xl  capitalize font-bold'>join Our news letter</h1>
+          <div className='items-center px-2 '>
+            <h1 className='text-3xl  capitalize mb-2 font-bold'>join Our news letter</h1>
             <p className='mr-5'>Delve into the depths of knowledge with our latest newsletter, where we unravel captivating insights, explore emerging trends, and share expert perspectives. From groundbreaking research to thought-provoking analysis, let us be your guide through the maze of information in this months edition. Stay informed, stay inspired!</p>
-            <div className='mt-5'>
-            <input type="text" placeholder="Email" className="input input-bordered input-success w-full max-w-xs" /> 
-            <button className="bg-violet-800  relative -left-20 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-3  pl-4 pr-4 pt-3">Submit</button>
+            <div className='mt-5 '>
+            <input type="email"  name='email' placeholder="Email" className="input input-bordered input-success w-full max-w-xs" /> 
+            <button onClick={notify}className="bg-violet-800  relative -right-56 -top-12  md:-right-60 md:-top-12 lg:-top-0 lg:-left-20 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-3  pl-4 pr-4 pt-3">Submit</button>
             </div>
+            <Toaster />
           </div>
           <div>
             <img src={news} alt="" className='w-full rounded-lg' />

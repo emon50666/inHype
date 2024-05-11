@@ -14,6 +14,8 @@ import Wishlist from "../WishlistPage/Wishlist";
 
 import BlogCard from "../AddBlog/BlogCard";
 import BlogDetails from "../AddBlog/BlogDetails";
+import UpdateBlog from "../UpdateBlog/UpdateBlog";
+import BlogUpdated_1 from "../UpdateBlog/BlogUpdated_1";
 
 
 
@@ -43,7 +45,8 @@ import BlogDetails from "../AddBlog/BlogDetails";
         },
         {
           path: '/all-blogs',
-          element: <AllBlogs></AllBlogs>
+          element: <AllBlogs></AllBlogs>,
+          loader: () => fetch('http://localhost:5000/blog')
         },
         {
           path: '/feature-blog',
@@ -61,6 +64,15 @@ import BlogDetails from "../AddBlog/BlogDetails";
           path: '/blog-details/:id',
           element: <BlogDetails></BlogDetails>,
           loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
+        },
+        {
+          path: 'update-blog/:id',
+          element: <UpdateBlog></UpdateBlog>,
+          loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
+        },
+        {
+          path: 'updated_2',
+          element: <BlogUpdated_1></BlogUpdated_1>
         }
       
       ]
