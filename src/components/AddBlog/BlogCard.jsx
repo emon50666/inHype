@@ -1,21 +1,28 @@
 
+import { Link } from "react-router-dom";
+
 
 const BlogCard = ({blog}) => {
-    const {title,url,shortdesc,category} = blog;
+ 
+    const {title,shortdesc,url,_id,category} = blog;
     return (
-        <div className="mt-10">
-           <div className="card  bg-base-100 shadow-xl">
-            <div className="absolute">
+        <div>
+            <div className="card  bg-base-100 shadow-xl">
+            <div className="absolute ">
             <p className="relative bg-violet-800 p-1 left-1 top-1 font-bold text-base rounded-md text-white
              pr-5 pl-5">{category} </p>
             </div>
-  <figure><img src={url}  alt="" className="w-full h-[200px] " /></figure>
+  <figure><img src={url} className="w-full h-[200px] " /></figure>
+
+
+
   <div className="card-body">
-  <h2  className="card-title">{title.substring(0, 25) + '...'}</h2>
-    <p>{shortdesc.substring(0,49) + '...'} </p>
-   
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+    <h2 className="card-title underline text-violet-500">{title.slice(0,24)+ '...'} </h2>
+    <p>{shortdesc.slice(0,49)+ '...'}  </p>
+    <div className="card-actions justify-between">
+    <Link to={`/blog-details/${_id}`}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">View Details</button></Link>
+
+    <Link to={'/wishlist'}><button className="border-[#9268EB] flex  border  text-violet-800 rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">Wishlist </button></Link>
     </div>
   </div>
 </div>

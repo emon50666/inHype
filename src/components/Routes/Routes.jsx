@@ -13,6 +13,7 @@ import FeaturedBlogs from "../FeaturedBlogs/FeaturedBlogs";
 import Wishlist from "../WishlistPage/Wishlist";
 
 import BlogCard from "../AddBlog/BlogCard";
+import BlogDetails from "../AddBlog/BlogDetails";
 
 
 
@@ -55,6 +56,11 @@ import BlogCard from "../AddBlog/BlogCard";
         {
           path: '/blog-card',
           element: <BlogCard></BlogCard>,
+        },
+        {
+          path: '/blog-details/:id',
+          element: <BlogDetails></BlogDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
         }
       
       ]

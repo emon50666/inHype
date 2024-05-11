@@ -25,14 +25,28 @@ const Home = () => {
         <div>
         <h1 className="text-3xl font-serif text-center font-bold mb-4">Recent Blog </h1>
       <div className='grid md:grid-cols-3 gap-5 container mx-auto '>
+
       {
       blogs.slice(0,6).map(blog =><BlogCard key={blog._id} blog={blog}></BlogCard> )
       }
+
+     
+
+
       </div>
         </div>
        <div className='text-center mt-5'>
-       <Link to={'/all-blogs'}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-2xl pb-2  pl-4 pr-4 pt-2">View All Blogs</button></Link>
+       <Link to={'/all-blogs'}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">View All Blogs</button></Link>
        </div>
+      </section>
+
+
+
+      {/* news letter section */}
+      <section>
+        <div>
+          <h2>Join Our News Letter</h2>
+        </div>
       </section>
         </div>
     );

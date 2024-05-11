@@ -12,7 +12,7 @@ const AddBlog = () => {
         const  shortdesc = form.shortdesc.value 
         const Description = form.Description.value 
         
-        const newBlog = {title,url,category,shortdesc,Description} 
+        const newBlog = {title,url,category,shortdesc,Description,date:new Date()} 
         console.log(newBlog)
 
         // send data to the server side
