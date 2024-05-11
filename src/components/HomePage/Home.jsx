@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import banner_1 from '../../assets/food-1.png'
 import BlogCard from '../AddBlog/BlogCard';
-
+import news from '../../assets/news.png'
 
 const Home = () => {
   const blogs = useLoaderData()
@@ -43,9 +43,24 @@ const Home = () => {
 
 
       {/* news letter section */}
-      <section>
-        <div>
-          <h2>Join Our News Letter</h2>
+      <section className='mt-20 bg-violet-200'>
+        <div className='container mx-auto pt-10 pb-10'>
+        <div className=''>
+        <h1 className="text-3xl font-serif text-center font-bold mb-10">Newsletter </h1>
+        </div>
+        <div className='grid md:grid-cols-2'>
+          <div className='items-center '>
+            <h1 className='text-3xl  capitalize font-bold'>join Our news letter</h1>
+            <p className='mr-5'>Delve into the depths of knowledge with our latest newsletter, where we unravel captivating insights, explore emerging trends, and share expert perspectives. From groundbreaking research to thought-provoking analysis, let us be your guide through the maze of information in this months edition. Stay informed, stay inspired!</p>
+            <div className='mt-5'>
+            <input type="text" placeholder="Email" className="input input-bordered input-success w-full max-w-xs" /> 
+            <button className="bg-violet-800  relative -left-20 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-3  pl-4 pr-4 pt-3">Submit</button>
+            </div>
+          </div>
+          <div>
+            <img src={news} alt="" className='w-full rounded-lg' />
+          </div>
+        </div>
         </div>
       </section>
         </div>

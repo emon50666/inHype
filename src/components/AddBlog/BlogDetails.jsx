@@ -9,7 +9,7 @@ const BlogDetails = () => {
 
     const {user} = useContext(AuthContext)
 
-    const {title,shortdesc,url,Description,category} = blog;
+    const {title,shortdesc,url,Description,category,} = blog;
    
 
  const [comments,setComment] = useState([])
@@ -91,12 +91,12 @@ const BlogDetails = () => {
        <div>
    <div>
    {
-                             comments.map(comment => (
-                                <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
-                                    <span className="font-bold text-black capitalize">{comment.name}</span>:  {comment.comment}
-                                </p>
-                            ))
-                        }
+    comments.map(comment => (
+   <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
+    <span className="font-bold text-black capitalize">{comment.name}</span>:  {comment. comment} 
+  </p>
+  ))
+    }
    </div>
   
 </div>
