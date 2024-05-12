@@ -72,11 +72,11 @@ const Home = () => {
       </section>
 
       {/* most popular recipe */}
-      <section className='mt-10 mb-10 container mx-auto'>
+      <section className='mt-10 mb-10 bg-gray-100 p-5 '>
         <div>
         <h1 className='text-3xl text-center  capitalize mb-2 font-bold'>Most Popular Recipes</h1>
         </div>
-        <div className='grid md:grid-cols-4 gap-5 mt-5 mb-5'>
+        <div className='container mx-auto grid md:grid-cols-4 gap-5 mt-5 mb-5'>
           <div className='shadow-lg shadow-violet-200 rounded-lg justify-center m-auto p-5 '>
             <img src="https://i.ibb.co/BPWbB0F/images-4.jpg" className='rounded-lg w-[200px] h-[150px] ' />
             <h1 className=' mt-2 text-2xl font-bold'>Pizza</h1>
@@ -93,6 +93,28 @@ const Home = () => {
             <img src="https://i.ibb.co/vjcgsh0/images-7.jpg" className='rounded-lg w-[200px]  h-[150px]' />
             <h1 className=' mt-2 text-2xl font-bold'>Salad</h1>
           </div>
+        </div>
+      </section>
+
+      {/* meet our shep */}
+      <section className='mb-10'>
+        <div>
+        <h1 className='text-3xl text-center  capitalize mb-2 font-bold'>Meet our experienced cooks</h1>
+        </div>
+        <div className='grid md:grid-cols-3 gap-5 mt-5 mb-5'>
+          <div className='shadow-lg shadow-violet-200 bg-violet-200 rounded-lg justify-center m-auto p-5 '>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREvizD2tBxCTLnMqzP3jY-UQ66iFtu97R6JlBC3xs355Vca7zP8sz6affS-7hUcuyUMxo" className='rounded-lg  h-[200px]' />
+            
+          </div>
+          <div className='shadow-lg shadow-violet-200  bg-violet-200 rounded-lg justify-center m-auto p-5'>
+            <img src="https://as2.ftcdn.net/v2/jpg/01/91/91/13/1000_F_191911363_xYU7eIUubY0EilXkCbf9YYlDk7dzhOrV.jpg" className='rounded-lg  h-[200px] ' />
+           
+          </div>
+          <div className='shadow-lg shadow-violet-200 bg-violet-200 rounded-lg justify-center m-auto p-5 '>
+            <img src="https://zbinworld.com/wp-content/uploads/2023/03/chiko.jpg" className='rounded-lg  h-[200px]' />
+            
+          </div>
+          
         </div>
       </section>
         </div>
