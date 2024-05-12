@@ -11,7 +11,7 @@ const BlogDetails = () => {
 
     const {user} = useContext(AuthContext)
 
-    const {title,shortdesc,url,Description,category,_id} = blog;
+    const {title,shortdesc,url,Description,category,_id,} = blog;
 
 
    
@@ -92,7 +92,9 @@ useEffect(()=>{
   <div className="card-body">
     <div className="flex justify-between">
     <h2 className="card-title underline text-violet-500">{title} </h2>
-  <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit>  </button></Link> 
+  {
+    user?.email == blog?.userEmail && <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit>  </button></Link> 
+  }
     
     </div>
     <p>{shortdesc}  </p>
