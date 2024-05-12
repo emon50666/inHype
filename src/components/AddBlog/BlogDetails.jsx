@@ -10,23 +10,34 @@ const BlogDetails = () => {
 
     const {user} = useContext(AuthContext)
 
-    const {title,shortdesc,url,Description,category} = blog;
+    const {title,shortdesc,url,Description,category,_id} = blog;
    
 
  const [comments,setComment] = useState([])
 
 
+// specific  id useEffect 
+useEffect(()=>{
+  fetch(`http://localhost:5000/comment/${_id}`)
+  .then(res=>res.json())
+  .then(data =>{
+      console.log(data)
+      setComment(data) 
+  })
+},[_id])
 
- useEffect(() => {
-    fetch(`http://localhost:5000/comment/`)
-      .then(response => response.json())
-      .then(data => {
-        setComment(data)
-        console.log(data)
-      })
+
+
+//  useEffect(() => {
+//     fetch(`http://localhost:5000/comment/`)
+//       .then(response => response.json())
+//       .then(data => {
+//         setComment(data)
+//         console.log(data)
+//       })
      
-      .catch(error => console.error('Error fetching comments:', error));
-  }, []);
+//       .catch(error => console.error('Error fetching comments:', error));
+//   }, []);
 
 
     const handelComment = e =>{
@@ -37,7 +48,11 @@ const BlogDetails = () => {
         const form = e.target 
         const name = form.name.value
         const comment = form.comment.value
-        const newComment = {name,comment}
+        const userName = user.userName
+        const id = _id
+        const userPhoto = user?.photoURL
+
+        const newComment = {name,comment,userName,userPhoto,id}
         console.log(newComment)
 
         fetch(`http://localhost:5000/comment/`,{
@@ -89,18 +104,16 @@ const BlogDetails = () => {
 <div className="mt-10 border border-dashed p-4 rounded-lg shadow-md border-violet-500">
 
 
-{
-        user && user.photoURL ? (
-          <img referrerPolicy="no-referrer"  src={user.photoURL}  className="rounded-full  w-12" />
-        ) :''
-       }
-       {user &&  <h4 className="font-semibold capitalize hover:bg-white"> {user.displayName} </h4>}
+
        <div>
    <div>
    {Array.isArray(comments) &&  (
       comments.map((comment) => (
         <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
-          <span className="font-bold text-black capitalize">{comment.name}</span>: {comment.comment} 
+          <span className="font-bold text-black capitalize">
+            {comment.name}</span>
+            <img src={user?.photoURL}  className="w-[50px] rounded-full border border-dashed  " />  
+            {comment.comment} 
         </p>
       ))
     ) }
