@@ -31,18 +31,6 @@ useEffect(()=>{
 
 
 
-//  useEffect(() => {
-//     fetch(`http://localhost:5000/comment/`)
-//       .then(response => response.json())
-//       .then(data => {
-//         setComment(data)
-//         console.log(data)
-//       })
-     
-//       .catch(error => console.error('Error fetching comments:', error));
-//   }, []);
-
-
     const handelComment = e =>{
 
     
@@ -93,7 +81,7 @@ useEffect(()=>{
     <div className="flex justify-between">
     <h2 className="card-title underline text-violet-500">{title} </h2>
   {
-    user?.email == blog?.userEmail && <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit>  </button></Link> 
+    user?.email == blog?.userEmail && <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit>  </button></Link>  
   }
     
     </div>
@@ -130,14 +118,21 @@ useEffect(()=>{
 
 {/* comment section */}
     <div className="mt-20">
-        <h2 className="mb-4 text-2xl capitalize">comment now</h2>
-   <form onSubmit={handelComment}>
+      
+        
+  {
+    
+    user?.email !== blog?.userEmail &&  <>
+    <h2 className="mb-4 text-2xl capitalize">comment now</h2>
+    <form onSubmit={handelComment}>
 
-   <input type="text" name="name" required placeholder="Your Name" className="input mb-2 input-bordered border border-[#9268EB] w-full max-w-xs" /> <br />
-
-<textarea name="comment" placeholder="Comment" required className="textarea   border border-[#9268EB] textarea-bordered textarea-lg w-full max-w-xs" ></textarea> <br />
-<button className="bg-violet-800 mb-5 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-1xl pb-2  pl-4 pr-4 pt-2">Post Comment</button>
-   </form>
+    <input type="text" name="name" required placeholder="Your Name" className="input mb-2 input-bordered border border-[#9268EB] w-full max-w-xs" /> <br />
+ 
+ <textarea name="comment" placeholder="Comment" required className="textarea   border border-[#9268EB] textarea-bordered textarea-lg w-full max-w-xs" ></textarea> <br />
+ <button className="bg-violet-800 mb-5 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-1xl pb-2  pl-4 pr-4 pt-2">Post Comment</button>
+    </form> 
+    </>
+  }
 </div>
 <Toaster />
         </div>

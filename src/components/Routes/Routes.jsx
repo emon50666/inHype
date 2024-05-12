@@ -16,6 +16,7 @@ import BlogCard from "../AddBlog/BlogCard";
 import BlogDetails from "../AddBlog/BlogDetails";
 import UpdateBlog from "../UpdateBlog/UpdateBlog";
 import BlogUpdated_1 from "../UpdateBlog/BlogUpdated_1";
+import FeatureBlogTable from "../FeaturedBlogs/FeatureBlogTable";
 
 
 
@@ -50,7 +51,12 @@ import BlogUpdated_1 from "../UpdateBlog/BlogUpdated_1";
         },
         {
           path: '/feature-blog',
-          element: <FeaturedBlogs></FeaturedBlogs>
+          element: <FeaturedBlogs></FeaturedBlogs>,
+          loader: () => fetch('http://localhost:5000/featureblog')
+        },
+        {
+          path: '/featureBlogTable',
+          element: <FeatureBlogTable></FeatureBlogTable>
         },
         {
           path: '/wishlist',

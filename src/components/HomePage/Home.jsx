@@ -6,6 +6,7 @@ import news from '../../assets/news.png'
 
 
 import toast, { Toaster } from 'react-hot-toast';
+import FeaturedBlogs from '../FeaturedBlogs/FeaturedBlogs';
 
 const Home = () => {
   const notify = () => toast.success(' Thank you for subscribing to our newsletter.');
@@ -46,6 +47,8 @@ const Home = () => {
        </div>
       </section>
 
+{/* feature blogs section */}
+<FeaturedBlogs></FeaturedBlogs>
 
 
       {/* news letter section */}

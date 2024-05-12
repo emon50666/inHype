@@ -1,10 +1,10 @@
 
-import { useContext } from 'react';
+
 import toast, { Toaster } from 'react-hot-toast';
-import { AuthContext } from '../AuthProvider/AuthProvider';
+
 const AddBlog = () => {
 
-    const {user} = useContext(AuthContext)
+   
 
     const handelAddBlog = event =>{
 
