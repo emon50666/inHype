@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
-const FeatureBlogTable = ({feature}) => {
+const FeatureBlogTable = ({feature,index}) => {
     const {user} = useContext(AuthContext)
    
  
@@ -48,7 +48,7 @@ const FeatureBlogTable = ({feature}) => {
           <span className="badge badge-ghost badge-sm">{title.slice(0,30) + '...'} </span>
         </td>
         <td>
-  {_id.slice(20-0)}
+  {index}
    
         </td>
         

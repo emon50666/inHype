@@ -11,9 +11,12 @@ const FeaturedBlogs = () => {
         <div className="mt-20 bg-violet-100">
             
             <div className="container mx-auto">
-                {
-                    featuredBlogs.map(feature => <FeatureBlogTable key={feature._id} feature={feature} ></FeatureBlogTable>)
-                }
+            {
+  featuredBlogs.map((feature, index) => (
+    <FeatureBlogTable key={feature._id} index={index + 1} feature={feature}></FeatureBlogTable>
+  ))
+}
+
             </div>
 
         </div>
