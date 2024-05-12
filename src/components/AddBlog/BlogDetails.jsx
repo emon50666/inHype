@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const BlogDetails = () => {
@@ -9,7 +10,7 @@ const BlogDetails = () => {
 
     const {user} = useContext(AuthContext)
 
-    const {title,shortdesc,url,Description,category,} = blog;
+    const {title,shortdesc,url,Description,category} = blog;
    
 
  const [comments,setComment] = useState([])
@@ -17,7 +18,7 @@ const BlogDetails = () => {
 
 
  useEffect(() => {
-    fetch('http://localhost:5000/comment/')
+    fetch(`http://localhost:5000/comment/`)
       .then(response => response.json())
       .then(data => {
         setComment(data)
@@ -36,23 +37,29 @@ const BlogDetails = () => {
         const form = e.target 
         const name = form.name.value
         const comment = form.comment.value
-        const newComment = (name,comment)
+        const newComment = {name,comment}
         console.log(newComment)
 
-        fetch('http://localhost:5000/comment/',{
-            method: "POST",
-            headers:{
-                'content-type': "application/json"
-            },
-            body: JSON.stringify(newComment)
+        fetch(`http://localhost:5000/comment/`,{
+          method: "POST",
+          headers:{
+            'content-type': "application/json"
+        },
+        body: JSON.stringify(newComment)
+
         })
         .then(res => res.json())
-            .then(data => {
-                
-               setComment(data)
-            })
-            .catch(error => console.error('Error adding comment:', error));
-
+        .then(data =>{
+          console.log(data)
+          setComment(data)
+          if(data.insertedId){
+            toast.success('Comment Successfully!');
+          }
+         
+        })
+        .catch(error =>{
+          console.log('fetch error',error)
+        })
         
 
     }
@@ -90,13 +97,13 @@ const BlogDetails = () => {
        {user &&  <h4 className="font-semibold capitalize hover:bg-white"> {user.displayName} </h4>}
        <div>
    <div>
-   {
-    comments.map(comment => (
-   <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
-    <span className="font-bold text-black capitalize">{comment.name}</span>:  {comment. comment} 
-  </p>
-  ))
-    }
+   {Array.isArray(comments) &&  (
+      comments.map((comment) => (
+        <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
+          <span className="font-bold text-black capitalize">{comment.name}</span>: {comment.comment} 
+        </p>
+      ))
+    ) }
    </div>
   
 </div>
@@ -108,14 +115,13 @@ const BlogDetails = () => {
         <h2 className="mb-4 text-2xl capitalize">comment now</h2>
    <form onSubmit={handelComment}>
 
-  
    <input type="text" name="name" required placeholder="Your Name" className="input mb-2 input-bordered border border-[#9268EB] w-full max-w-xs" /> <br />
 
 <textarea name="comment" placeholder="Comment" required className="textarea   border border-[#9268EB] textarea-bordered textarea-lg w-full max-w-xs" ></textarea> <br />
 <button className="bg-violet-800 mb-5 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-1xl pb-2  pl-4 pr-4 pt-2">Post Comment</button>
    </form>
 </div>
-
+<Toaster />
         </div>
     );
 };

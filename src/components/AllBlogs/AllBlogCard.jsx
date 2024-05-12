@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 
 import { FaEdit } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const AllBlogCard = ({blog}) => {
+    const {user} = useContext(AuthContext)
+    console.log(user)
     const {title,shortdesc,url,_id,category,} = blog;
     return (
         <div>
@@ -21,6 +25,7 @@ const AllBlogCard = ({blog}) => {
     <Link to={`/blog-details/${_id}`}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-2 pr-2 pt-2">View Details</button></Link>
 
     <Link to={'/wishlist'}><button className="border-[#9268EB] flex  border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2">Wishlist </button></Link>
+
     
     <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit> </button></Link>
     </div>
