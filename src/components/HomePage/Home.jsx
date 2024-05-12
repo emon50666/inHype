@@ -3,6 +3,8 @@ import banner_1 from '../../assets/food-1.png'
 import BlogCard from '../AddBlog/BlogCard';
 import news from '../../assets/news.png'
 
+
+
 import toast, { Toaster } from 'react-hot-toast';
 
 const Home = () => {
@@ -66,6 +68,31 @@ const Home = () => {
             <img src={news} alt="" className='w-full rounded-lg' />
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* most popular recipe */}
+      <section className='mt-10 mb-10 container mx-auto'>
+        <div>
+        <h1 className='text-3xl text-center  capitalize mb-2 font-bold'>Most Popular Recipes</h1>
+        </div>
+        <div className='grid md:grid-cols-4 gap-5 mt-5 mb-5'>
+          <div className='shadow-lg shadow-violet-200 rounded-lg justify-center m-auto p-5 '>
+            <img src="https://i.ibb.co/BPWbB0F/images-4.jpg" className='rounded-lg w-[200px] h-[150px] ' />
+            <h1 className=' mt-2 text-2xl font-bold'>Pizza</h1>
+          </div>
+          <div className='shadow-lg shadow-violet-200 rounded-lg justify-center m-auto p-5'>
+            <img src="https://i.ibb.co/f205n1J/images-5.jpg" className='rounded-lg w-[200px] h-[150px] ' />
+            <h1 className=' mt-2 text-2xl font-bold'>Meat</h1>
+          </div>
+          <div className='shadow-lg shadow-violet-200 rounded-lg justify-center m-auto p-5'>
+            <img src="https://i.ibb.co/t3mBSgC/images-6.jpg" className='rounded-lg w-[200px]  h-[150px]' />
+            <h1 className=' mt-2 text-2xl font-bold'>Soup</h1>
+          </div>
+          <div className='shadow-lg shadow-violet-200 rounded-lg justify-center m-auto p-5'>
+            <img src="https://i.ibb.co/vjcgsh0/images-7.jpg" className='rounded-lg w-[200px]  h-[150px]' />
+            <h1 className=' mt-2 text-2xl font-bold'>Salad</h1>
+          </div>
         </div>
       </section>
         </div>

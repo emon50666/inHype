@@ -69,7 +69,7 @@ const BlogDetails = () => {
         <div className="mt-[90px] container mx-auto ">
                  <div className="card  bg-base-100 shadow-xl">
            
-  <figure><img src={url} className="w-full  h-[500px] "  /></figure>
+  <figure><img src={url} className="w-full  md:h-[500px] "  /></figure>
 
   <div className="card-body">
     <h2 className="card-title underline text-violet-500">{title} </h2>
