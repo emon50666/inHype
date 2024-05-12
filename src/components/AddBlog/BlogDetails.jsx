@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { FaEdit } from "react-icons/fa";
 
 
 const BlogDetails = () => {
@@ -11,6 +12,8 @@ const BlogDetails = () => {
     const {user} = useContext(AuthContext)
 
     const {title,shortdesc,url,Description,category,_id} = blog;
+
+
    
 
  const [comments,setComment] = useState([])
@@ -51,7 +54,7 @@ useEffect(()=>{
         const userName = user.userName
         const id = _id
         const userPhoto = user?.photoURL
-
+        
         const newComment = {name,comment,userName,userPhoto,id}
         console.log(newComment)
 
@@ -87,7 +90,11 @@ useEffect(()=>{
   <figure><img src={url} className="w-full  md:h-[500px] "  /></figure>
 
   <div className="card-body">
+    <div className="flex justify-between">
     <h2 className="card-title underline text-violet-500">{title} </h2>
+  <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit>  </button></Link> 
+    
+    </div>
     <p>{shortdesc}  </p>
    
 
@@ -101,27 +108,23 @@ useEffect(()=>{
 
 
 {/* comment data show */}
-<div className="mt-10 border border-dashed p-4 rounded-lg shadow-md border-violet-500">
 
 
 
-       <div>
-   <div>
-   {Array.isArray(comments) &&  (
-      comments.map((comment) => (
-        <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
-          <span className="font-bold text-black capitalize">
-            {comment.name}</span>
-            <img src={user?.photoURL}  className="w-[50px] rounded-full border border-dashed  " />  
-            {comment.comment} 
-        </p>
-      ))
-    ) }
-   </div>
-  
-</div>
-         
-</div>
+  {comments.length >0 ?    <div className="mt-10 border border-dashed p-4 rounded-lg shadow-md border-violet-500">
+ { comments.map((comment) => (
+    <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
+      <span className="font-bold text-black capitalize">
+        {comment.name}</span>
+        <img src={comment.userPhoto}  className="w-[50px] rounded-full border border-dashed  " />  
+        {comment.comment} 
+    </p>
+  ))}
+  </div>  : <p className="mt-10 font-bold border rounded-lg border-dashed border-violet-300 p-2">No Comment Yet !</p>
+     }
+   
+
+ 
 
 {/* comment section */}
     <div className="mt-20">

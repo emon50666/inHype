@@ -21,13 +21,13 @@ const AllBlogCard = ({blog}) => {
   <div className="card-body">
     <h2 className="card-title underline text-violet-500">{title.slice(0,24)+ '...'} </h2>
     <p>{shortdesc.slice(0,49)+ '...'}  </p>
-    <div className="card-actions ">
+    <div className="card-actions justify-between ">
     <Link to={`/blog-details/${_id}`}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-2 pr-2 pt-2">View Details</button></Link>
 
     <Link to={'/wishlist'}><button className="border-[#9268EB] flex  border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2">Wishlist </button></Link>
 
     
-    <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit> </button></Link>
+  
     </div>
   </div>
 </div>
