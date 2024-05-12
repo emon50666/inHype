@@ -10,10 +10,10 @@ const BlogDetails = () => {
   
 
     const {user} = useContext(AuthContext)
-
+   
     const {title,shortdesc,url,Description,category,_id,} = blog;
 
-
+console.log(user,blog)
    
 
  const [comments,setComment] = useState([])
@@ -42,8 +42,8 @@ useEffect(()=>{
         const userName = user.userName
         const id = _id
         const userPhoto = user?.photoURL
-        
-        const newComment = {name,comment,userName,userPhoto,id}
+      
+        const newComment = {name,comment,userName,userPhoto,id,}
         console.log(newComment)
 
         fetch(`http://localhost:5000/comment/`,{
@@ -77,14 +77,26 @@ useEffect(()=>{
            
   <figure><img src={url} className="w-full  md:h-[500px] "  /></figure>
 
+  
   <div className="card-body">
+    {/* faEdit start */}
     <div className="flex justify-between">
     <h2 className="card-title underline text-violet-500">{title} </h2>
-  {
-    user?.email == blog?.userEmail && <Link to={`/update-blog/${_id}`}><button className="border-[#9268EB] flex  mt-1 border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2"> <FaEdit></FaEdit>  </button></Link>  
-  }
+    {
+
+  user?.email == blog?.userEmail && (
     
+    <Link to={`/update-blog/${_id}`}>
+      <button className="border-[#9268EB] flex mt-1 border text-violet-800 rounded-lg font-bold pb-2 pl-2 pr-2 pt-2">
+        <FaEdit />
+      </button>
+    </Link>
+  )
+}
+
+
     </div>
+    {/* faEdit end */}
     <p>{shortdesc}  </p>
    
 
@@ -120,9 +132,9 @@ useEffect(()=>{
     <div className="mt-20">
       
         
-  {
+    {
     
-    user?.email !== blog?.userEmail &&  <>
+    user?.email !== blog?.userEmail ?  <>
     <h2 className="mb-4 text-2xl capitalize">comment now</h2>
     <form onSubmit={handelComment}>
 
@@ -132,6 +144,7 @@ useEffect(()=>{
  <button className="bg-violet-800 mb-5 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-1xl pb-2  pl-4 pr-4 pt-2">Post Comment</button>
     </form> 
     </>
+    : <p>no comment</p>
   }
 </div>
 <Toaster />

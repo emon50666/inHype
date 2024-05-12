@@ -31,13 +31,13 @@ const FeatureBlogTable = ({feature,index}) => {
           <div className="flex items-center gap-3">
             <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
-              <img src={userPhoto} alt="Avatar Tailwind CSS Component" />
+              <img src={feature?.photoUrl} alt="Avatar Tailwind CSS Component" />
                 
                 
               </div>
             </div>
             <div>
-              <div className="font-bold">{user?.displayName} </div>
+              <div className="font-bold">{feature?.displayName} </div>
               
             </div>
           </div>

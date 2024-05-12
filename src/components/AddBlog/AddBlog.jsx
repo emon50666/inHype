@@ -1,10 +1,12 @@
 
 
+import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const AddBlog = () => {
 
-   
+   const {user} = useContext(AuthContext)
 
     const handelAddBlog = event =>{
 
@@ -15,11 +17,15 @@ const AddBlog = () => {
         const category = form.category.value
         const  shortdesc = form.shortdesc.value 
         const Description = form.Description.value 
+        const userEmail = user?.email
+        const photoUrl = user?.photoURL
+        const displayName = user?.displayName
+
       
         
 
         
-        const newBlog = {title,url,category,shortdesc,Description,date:new Date(),} 
+        const newBlog = {title,url,category,shortdesc,Description,userEmail,photoUrl,displayName, date:new Date(),} 
         console.log(newBlog)
 
         // send data to the server side
