@@ -42,7 +42,7 @@ const Home = () => {
 
       </div>
         </div>
-       <div className='text-center mt-5'>
+       <div className='text-center mt-8'>
        <Link to={'/all-blogs'}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">View All Blogs</button></Link>
        </div>
       </section>

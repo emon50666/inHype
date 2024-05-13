@@ -116,10 +116,22 @@ useEffect(()=>{
   {comments.length >0 ?    <div className="mt-10 border border-dashed p-4 rounded-lg shadow-md border-violet-500">
  { comments.map((comment) => (
     <p className="text-violet-600 border border-dotted mt-2 rounded-lg p-2 text-base" key={comment._id}>
-      <span className="font-bold text-black capitalize">
-        {comment.name}</span>
-        <img src={comment.userPhoto}  className="w-[50px] rounded-full border border-dashed  " />  
-        {comment.comment} 
+     <div className="flex gap-3">
+     <div className="flex gap-3 items-center">
+      <img src={comment.userPhoto}  className="w-[50px] rounded-full border border-dashed  " /> 
+      </div>
+      <div>
+      <span className="font-bold  text-black capitalize">
+        {comment.name}</span> 
+       <p>{comment.comment} </p>
+      </div>
+     </div>
+      
+        
+        
+        
+       
+     
     </p>
   ))}
   </div>  : <p className="mt-10 font-bold border rounded-lg border-dashed border-violet-300 p-2">No Comment Yet !</p>
@@ -135,7 +147,7 @@ useEffect(()=>{
     {
     
     user?.email !== blog?.userEmail ?  <>
-    <h2 className="mb-4 text-2xl capitalize">comment now</h2>
+    <h2 className="mb-4 text-2xl capitalize">comment Here !</h2>
     <form onSubmit={handelComment}>
 
     <input type="text" name="name" required placeholder="Your Name" className="input mb-2 input-bordered border border-[#9268EB] w-full max-w-xs" /> <br />

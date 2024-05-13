@@ -20,6 +20,9 @@ import FeatureBlogTable from "../FeaturedBlogs/FeatureBlogTable";
 import PrivateRoute from './../../PrivateRoute/PrivateRoute';
 import WishlistCard from "../WishlistPage/WishlistCard";
 
+import Error from "../Error/Error";
+
+
 
 
 
@@ -27,6 +30,8 @@ import WishlistCard from "../WishlistPage/WishlistCard";
     {
       path: "/",
       element: <Root></Root>,
+    errorElement: <Error></Error>,
+     
       children:[
         {
         path: '/',

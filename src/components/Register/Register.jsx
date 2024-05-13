@@ -39,7 +39,10 @@ const navigate = useNavigate();
           setError('Give an numeric character (0-9)');
           return;
          }
-
+         if (!/[@#$]/.test(password)) {
+          setError('Password must include a special character ( @ # $ )');
+          return false;
+        }
 
         registerUser(email,password)
 
