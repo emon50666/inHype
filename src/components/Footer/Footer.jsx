@@ -19,8 +19,8 @@ const Footer = () => {
   <nav>
     <h6 className="footer-title">User Links</h6> 
     <li className="marker:text-[#9268EB]  "><a className="link link-hover">Blogs</a></li>
-    <li className="marker:text-[#9268EB]  "><a className="link link-hover">Popular News</a></li>
-    <li className="marker:text-[#9268EB]  "><a className="link link-hover">World War News</a></li>
+    <li className="marker:text-[#9268EB]  "><a className="link link-hover">Best Food  Blog</a></li>
+    <li className="marker:text-[#9268EB]  "><a className="link link-hover">Recent Blog</a></li>
 
   </nav> 
   <nav>

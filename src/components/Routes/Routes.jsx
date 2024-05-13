@@ -17,6 +17,7 @@ import BlogDetails from "../AddBlog/BlogDetails";
 import UpdateBlog from "../UpdateBlog/UpdateBlog";
 import BlogUpdated_1 from "../UpdateBlog/BlogUpdated_1";
 import FeatureBlogTable from "../FeaturedBlogs/FeatureBlogTable";
+import PrivateRoute from './../../PrivateRoute/PrivateRoute';
 
 
 
@@ -68,7 +69,7 @@ import FeatureBlogTable from "../FeaturedBlogs/FeatureBlogTable";
         },
         {
           path: '/blog-details/:id',
-          element: <BlogDetails></BlogDetails>,
+          element:<PrivateRoute> <BlogDetails></BlogDetails></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
         },
         {

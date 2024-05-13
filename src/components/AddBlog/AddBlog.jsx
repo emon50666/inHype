@@ -62,6 +62,8 @@ const AddBlog = () => {
                 <option>Soup</option>
                 <option>Salad</option>
                 <option>Sweet</option>
+                <option>Mango</option>
+
 
 
 
