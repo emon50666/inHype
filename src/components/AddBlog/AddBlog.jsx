@@ -41,7 +41,7 @@ const AddBlog = () => {
         .then(data => {
             
             console.log('data',data)
-            if(data.blogResult.insertedId > 0 ){
+            if(data.blogResult.insertedId  ){
                 toast.success('Blog Add Successfully!');
             }
         })

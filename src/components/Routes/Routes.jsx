@@ -18,6 +18,7 @@ import UpdateBlog from "../UpdateBlog/UpdateBlog";
 import BlogUpdated_1 from "../UpdateBlog/BlogUpdated_1";
 import FeatureBlogTable from "../FeaturedBlogs/FeatureBlogTable";
 import PrivateRoute from './../../PrivateRoute/PrivateRoute';
+import WishlistCard from "../WishlistPage/WishlistCard";
 
 
 
@@ -61,7 +62,14 @@ import PrivateRoute from './../../PrivateRoute/PrivateRoute';
         },
         {
           path: '/wishlist',
-          element: <Wishlist></Wishlist>
+          element: <Wishlist></Wishlist>,
+          // loader: ({params}) => fetch(`http://localhost:5173/wishlist/${params.id}`)
+
+         
+        },
+        {
+          path: '/wishlistcard',
+          element: <WishlistCard></WishlistCard>
         },
         {
           path: '/blog-card',

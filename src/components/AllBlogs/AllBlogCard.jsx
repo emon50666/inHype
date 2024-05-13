@@ -11,7 +11,9 @@ const AllBlogCard = ({blog}) => {
 
 
 
-// add wishlist button
+ 
+
+
 
 
 
