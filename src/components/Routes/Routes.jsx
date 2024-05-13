@@ -63,7 +63,7 @@ import WishlistCard from "../WishlistPage/WishlistCard";
         {
           path: '/wishlist',
           element: <Wishlist></Wishlist>,
-          // loader: ({params}) => fetch(`http://localhost:5173/wishlist/${params.id}`)
+         
 
          
         },

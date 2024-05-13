@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-
+import toast, { Toaster } from 'react-hot-toast';
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const AllBlogCard = ({blog}) => {
@@ -10,12 +10,31 @@ const AllBlogCard = ({blog}) => {
     const {title,shortdesc,url,_id,category,} = blog;
 
 
-
+    const handelAddWishlist = (blog) => {
+    
+      const wishEmail = { ...blog, userEmail: user.email ,blogId:blog._id};
+    delete wishEmail._id
+      
+      fetch('http://localhost:5000/wishlist', {
+        method: "POST",
+        headers: {
+          'content-type': "application/json"
+        },
+        body: JSON.stringify(wishEmail)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.insertedId  ){
+          toast.success('Wishlist Add Successfully!');
+      }
+      })
+      .catch(error => {
+        console.error('Error adding to wishlist:', error);
+      });
+    }
+    
  
-
-
-
-
 
 
 
@@ -38,12 +57,13 @@ const AllBlogCard = ({blog}) => {
     <div className="card-actions justify-between ">
     <Link to={`/blog-details/${_id}`}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-2 pr-2 pt-2">View Details</button></Link>
 
-    <Link to={'/wishlist'}><button  className="border-[#9268EB] flex  border  text-violet-800 rounded-lg  font-bold  pb-2  pl-2 pr-2 pt-2">Wishlist </button></Link>
+    <button onClick={()=>handelAddWishlist(blog)} className="border-[#9268EB] flex  border  text-violet-800 rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">Wishlist </button>
 
     
   
     </div>
   </div>
+  <Toaster />
 </div>
         </div>
     );

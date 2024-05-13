@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const BlogCard = ({blog}) => {
@@ -11,7 +12,7 @@ const BlogCard = ({blog}) => {
    
     const handelAddWishlist = (blog) => {
     
-      const wishEmail = { ...blog, userEmail: user.email };
+      const wishEmail = { ...blog, userEmail: user.email ,blogId:blog._id};
     delete wishEmail._id
       
       fetch('http://localhost:5000/wishlist', {
@@ -24,6 +25,9 @@ const BlogCard = ({blog}) => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        if(data.insertedId  ){
+          toast.success('Wishlist Add Successfully!');
+      }
       })
       .catch(error => {
         console.error('Error adding to wishlist:', error);
@@ -38,17 +42,17 @@ const BlogCard = ({blog}) => {
 
     return (
         <div>
-            <div className="card  bg-base-100 shadow-xl">
+            <div className="card  bg-violet-100 shadow-xl">
             <div className="absolute ">
             <p className="relative bg-violet-800 p-1 left-1 top-1 font-bold text-base rounded-md text-white
              pr-5 pl-5">{category} </p>
             </div>
-  <figure><img src={url} className="w-full h-[200px] " /></figure>
+          <Link to={`/blog-details/${_id}`}>  <figure><img src={url} className="w-full hover:animate-pulse h-[200px] rounded-lg " /></figure></Link>
 
 
 
   <div className="card-body">
-    <h2 className="card-title underline text-violet-500">{title.slice(0,24)+ '...'} </h2>
+   <Link to={`/blog-details/${_id}`}> <h2 className="card-title hover:text-violet-900 hover:animate-bounce underline text-violet-500">{title.slice(0,24)+ '...'} </h2></Link>
     <p>{shortdesc.slice(0,49)+ '...'}  </p>
     <div className="card-actions mt-2 justify-between">
     <Link to={`/blog-details/${_id}`}><button className="bg-violet-800 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">View Details</button></Link>
@@ -56,6 +60,7 @@ const BlogCard = ({blog}) => {
    <button onClick={()=>handelAddWishlist(blog)} className="border-[#9268EB] flex  border  text-violet-800 rounded-lg  font-bold text-base pb-2  pl-4 pr-4 pt-2">Wishlist </button>
     </div>
   </div>
+  <Toaster />
 </div>
         </div>
     );

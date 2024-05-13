@@ -30,7 +30,7 @@ const Home = () => {
 {/* recent blog section */}
       <section className="mt-10 mb-10">
         <div>
-        <h1 className="text-3xl font-serif text-center font-bold mb-4">Recent Blog </h1>
+        <h1 className="text-3xl font-serif text-center font-bold mb-10 ">Recent Blog </h1>
       <div className='grid md:grid-cols-3 gap-5 container mx-auto '>
 
       {
