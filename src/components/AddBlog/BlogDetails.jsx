@@ -144,7 +144,7 @@ useEffect(()=>{
  <button className="bg-violet-800 mb-5 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-1xl pb-2  pl-4 pr-4 pt-2">Post Comment</button>
     </form> 
     </>
-    : <p>no comment</p>
+    : <p className="text-2xl font-bold mb-5">no comment box </p>
   }
 </div>
 <Toaster />
