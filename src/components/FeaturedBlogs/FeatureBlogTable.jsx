@@ -1,4 +1,5 @@
 
+
 import PropTypes from 'prop-types';
 
 const FeatureBlogTable = ({feature,index}) => {
@@ -40,9 +41,9 @@ const FeatureBlogTable = ({feature,index}) => {
           </div>
         </td>
         <td>
-         
+         <p className='text-start'>{title.slice(0,30) + '...'}</p>
           
-          <span className="badge badge-ghost  badge-sm">{title.slice(0,30) + '...'} </span>
+          {/* <span className="badge badge-ghost  badge-sm">{title.slice(0,30) + '...'} </span> */}
         </td>
         <td>
   {index}

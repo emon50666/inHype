@@ -44,7 +44,7 @@ const BlogCard = ({blog}) => {
         <div>
             <div className="card  bg-violet-100 shadow-xl">
             <div className="absolute ">
-            <p className="relative bg-violet-800 p-1 left-1 top-1 font-bold text-base rounded-md text-white
+            <p className="relative bg-violet-800 p-1 animate-pulse left-1 top-1 font-bold text-base rounded-md text-white
              pr-5 pl-5">{category} </p>
             </div>
           <Link to={`/blog-details/${_id}`}>  <figure><img src={url} className="w-full hover:animate-pulse h-[200px] rounded-lg " /></figure></Link>
