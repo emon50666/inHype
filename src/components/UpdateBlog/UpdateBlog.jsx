@@ -21,7 +21,7 @@ const {title,url,category,shortdesc,Description} = updateBlog
         console.log(newUpdate)
 
         // send data to the server side
-        fetch('http://localhost:5000/blog',{
+        fetch('https://exame-11-server.vercel.app/blog',{
             method: "POST",
             headers:{
                 'content-type': "application/json"

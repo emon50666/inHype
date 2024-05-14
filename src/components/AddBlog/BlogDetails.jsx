@@ -21,7 +21,7 @@ console.log(user,blog)
 
 // specific  id useEffect 
 useEffect(()=>{
-  fetch(`http://localhost:5000/comment/${_id}`)
+  fetch(`https://exame-11-server.vercel.app/comment/${_id}`)
   .then(res=>res.json())
   .then(data =>{
       console.log(data)
@@ -46,7 +46,7 @@ useEffect(()=>{
         const newComment = {name,comment,userName,userPhoto,id,}
         console.log(newComment)
 
-        fetch(`http://localhost:5000/comment/`,{
+        fetch(`https://exame-11-server.vercel.app/comment/`,{
           method: "POST",
           headers:{
             'content-type': "application/json"
@@ -81,7 +81,7 @@ useEffect(()=>{
   <div className="card-body">
     {/* faEdit start */}
     <div className="flex justify-between">
-    <h2 className="card-title underline text-violet-500">{title} </h2>
+    <h2 className="card-title underline text-base md:text-2xl text-violet-500">{title} </h2>
     {
 
   user?.email == blog?.userEmail && (
@@ -156,7 +156,7 @@ useEffect(()=>{
  <button className="bg-violet-800 mb-5 hover:bg-[#9268EB]  text-white rounded-lg  font-bold text-1xl pb-2  pl-4 pr-4 pt-2">Post Comment</button>
     </form> 
     </>
-    : <p className="text-2xl font-bold mb-5">no comment box </p>
+    : <p className="text-2xl font-bold px-5 mb-5">no comment box </p>
   }
 </div>
 <Toaster />

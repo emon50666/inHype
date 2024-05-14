@@ -15,7 +15,7 @@ import Wishlist from "../WishlistPage/Wishlist";
 import BlogCard from "../AddBlog/BlogCard";
 import BlogDetails from "../AddBlog/BlogDetails";
 import UpdateBlog from "../UpdateBlog/UpdateBlog";
-import BlogUpdated_1 from "../UpdateBlog/BlogUpdated_1";
+
 import FeatureBlogTable from "../FeaturedBlogs/FeatureBlogTable";
 import PrivateRoute from './../../PrivateRoute/PrivateRoute';
 import WishlistCard from "../WishlistPage/WishlistCard";
@@ -36,7 +36,7 @@ import Error from "../Error/Error";
         {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/blog')
+        loader: () => fetch('https://exame-11-server.vercel.app/blog')
        
         },
         {
@@ -54,12 +54,12 @@ import Error from "../Error/Error";
         {
           path: '/all-blogs',
           element: <AllBlogs></AllBlogs>,
-          loader: () => fetch('http://localhost:5000/allblogs')
+          loader: () => fetch('https://exame-11-server.vercel.app/allblogs')
         },
         {
           path: '/feature-blog',
           element: <FeaturedBlogs></FeaturedBlogs>,
-          loader: () => fetch('http://localhost:5000/featureblog')
+          loader: () => fetch('https://exame-11-server.vercel.app/featureblog')
         },
         {
           path: '/featureBlogTable',
@@ -83,17 +83,14 @@ import Error from "../Error/Error";
         {
           path: '/blog-details/:id',
           element:<PrivateRoute> <BlogDetails></BlogDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
+          loader: ({params}) => fetch(`https://exame-11-server.vercel.app/blog/${params.id}`)
         },
         {
           path: 'update-blog/:id',
           element: <UpdateBlog></UpdateBlog>,
-          loader: ({params}) => fetch(`http://localhost:5000/blog/${params.id}`)
+          loader: ({params}) => fetch(`https://exame-11-server.vercel.app/blog/${params.id}`)
         },
-        {
-          path: 'updated_2',
-          element: <BlogUpdated_1></BlogUpdated_1>
-        }
+       
       
       ]
     },
