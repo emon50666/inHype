@@ -12,7 +12,7 @@ const FeaturedBlogs = () => {
             
             <div className="container mx-auto">
             {
-  featuredBlogs.map((feature, index) => (
+  featuredBlogs?.map((feature, index) => (
     <FeatureBlogTable key={feature._id} index={index + 1} feature={feature}></FeatureBlogTable>
   ))
 }

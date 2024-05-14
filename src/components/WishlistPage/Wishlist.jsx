@@ -8,7 +8,7 @@ import WishlistCard from "./WishlistCard";
 const Wishlist = () => {
     const {user} = useContext(AuthContext);
     const [wishlists,setWishlist] = useState([]);
-    const [wishDeletes,setDeleted] = useState('')
+    
 
     useEffect(()=>{
         if(user?.email){
@@ -30,8 +30,8 @@ const Wishlist = () => {
             <div className="grid md:grid-cols-3 gap-5 mb-10">
                 {
                     wishlists.map(wishlist => <WishlistCard key={wishlist._id} wishlist={wishlist}  
-                        wishDeletes={wishDeletes}
-                        setDeleted={setDeleted}
+                        setWishlist={setWishlist}
+                        wishlists={wishlists}
                     ></WishlistCard>)
                 }
             </div>

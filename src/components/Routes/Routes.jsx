@@ -54,7 +54,7 @@ import Error from "../Error/Error";
         {
           path: '/all-blogs',
           element: <AllBlogs></AllBlogs>,
-          loader: () => fetch('http://localhost:5000/blog')
+          loader: () => fetch('http://localhost:5000/allblogs')
         },
         {
           path: '/feature-blog',

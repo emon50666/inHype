@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const WishlistCard = ({wishlist,wishDeletes,setDeleted}) => {
+const WishlistCard = ({wishlist,setWishlist,wishlists}) => {
     const {title,shortdesc,url,blogId,category,_id}  = wishlist;
 
     const handelDelete = _id => {
@@ -35,8 +35,8 @@ const WishlistCard = ({wishlist,wishDeletes,setDeleted}) => {
                           }
                         
                         );
-                        const remining = wishDeletes.filter(w => w._id !== _id)
-                        setDeleted(remining)
+                        const remining = wishlists.filter(w => w._id !== _id)
+                        setWishlist(remining)
                     }
                 })
               
@@ -54,7 +54,7 @@ const WishlistCard = ({wishlist,wishDeletes,setDeleted}) => {
             <p className="relative bg-violet-800 p-1 left-1 top-1 font-bold text-base rounded-md text-white
              pr-5 pl-5">{category} </p>
             </div>
-            <Link to={`/blog-details/${blogId}`}><figure><img src={url} className="w-full h-[200px] rounded-lg " /></figure></Link>
+            <Link to={`/blog-details/${blogId}`}><figure><img src={url} className="w-full hover:animate-ping h-[200px] rounded-lg " /></figure></Link>
             <div className="card-body">
             <Link  to={`/blog-details/${blogId}`}><h2 className="card-title hover:text-blue-800 underline text-violet-500">{title.slice(0,24)+ '...'} </h2></Link>
                 <p className="text-start">{shortdesc.slice(0,49)+ '...'}  </p>
