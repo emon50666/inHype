@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import PropTypes from 'prop-types';
 
 
 const WishlistCard = ({wishlist,setWishlist,wishlists}) => {
@@ -69,5 +70,14 @@ const WishlistCard = ({wishlist,setWishlist,wishlists}) => {
         </div>
     );
 };
+
+
+WishlistCard.propTypes = {
+    wishlist: PropTypes.object,
+    setWishlist:PropTypes.array,
+    wishlists: PropTypes
+   
+  };
+
 
 export default WishlistCard;

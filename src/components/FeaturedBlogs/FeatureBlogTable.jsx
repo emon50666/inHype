@@ -1,13 +1,10 @@
-import { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+
+import PropTypes from 'prop-types';
 
 const FeatureBlogTable = ({feature,index}) => {
-    const {user} = useContext(AuthContext)
-   
- 
-    const userPhoto = user?.photoURL
+  
 
-    const {title,url,_id,category,}  = feature;
+    const {title}  = feature;
 
 
     return (
@@ -61,5 +58,12 @@ const FeatureBlogTable = ({feature,index}) => {
         </div>
     );
 };
+
+
+FeatureBlogTable.propTypes = {
+  feature: PropTypes.object,
+  index: PropTypes.number
+};
+
 
 export default FeatureBlogTable;

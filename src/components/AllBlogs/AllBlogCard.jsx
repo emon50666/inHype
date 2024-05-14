@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 import toast, { Toaster } from 'react-hot-toast';
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
@@ -68,5 +68,13 @@ const AllBlogCard = ({blog}) => {
         </div>
     );
 };
+
+
+
+AllBlogCard.propTypes = {
+  blog: PropTypes.object,
+ 
+};
+
 
 export default AllBlogCard;

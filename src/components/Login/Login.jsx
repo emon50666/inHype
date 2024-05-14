@@ -5,6 +5,7 @@ import { GrGithub } from "react-icons/gr";
 import { Link, useLocation, useNavigate,  } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import loginImg from '../../assets/login.png'
 
 
 
@@ -45,10 +46,12 @@ const location = useLocation();
 
 
     return (
+       <div className="border-violet-200">
+        <div className="grid md:grid-cols-2">
         <div className="bg-gray-100 md:p-20">
         <div className="container mx-auto mb-20 ">
-       <h1 className="text-3xl text-center font-bold font-serif mb-5 pt-10 ">Login Now</h1>
-       <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-[#9268EB] shadow-gray-300 -300/50 justify-center mx-auto">
+       <h1 className="text-3xl text-center font-bold font-serif mb-3 mt-20 ">Login Now</h1>
+       <div className="card  shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-[#9268EB] shadow-gray-300 -300/50 justify-center mx-auto">
  <form onSubmit={handelLogin}  className="card-body">
  
    <div className="form-control">
@@ -97,7 +100,12 @@ const location = useLocation();
 <Toaster />
    </div>
 
-   </div>
+       </div>
+       <div className="pt-10 mt-28">
+        <img src={loginImg} alt="" className="w-[445px] rounded-lg  hover:animate-spin " />
+       </div>
+        </div>
+       </div>
     );
 };
 

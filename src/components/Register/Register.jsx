@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
-
+import registerimg from '../../assets/register.png'
 const Register = () => {
 const {registerUser,error,setError} = useContext(AuthContext)
 const navigate = useNavigate();
@@ -63,9 +63,11 @@ const navigate = useNavigate();
 
     }
     return (
+       <div className="grid md:grid-cols-2">
+        <div className="">
         <div className="bg-gray-100 md:p-20">
         <div className="container mx-auto mb-20 ">
-       <h1 className="text-3xl text-center font-bold font-serif mb-5 pt-10">Register Now</h1>
+       <h1 className="text-3xl text-center font-bold font-serif  pt-20">Register Now</h1>
        <div className="card shrink-0 w-full max-w-sm shadow-2xl border-b-4 border-[#9268EB] shadow-gray-300 -300/50 justify-center mx-auto">
  <form  onSubmit={handelRegister} className="card-body">
  <div className="form-control">
@@ -110,7 +112,12 @@ const navigate = useNavigate();
 <Toaster />
    </div>
 
-   </div>
+      </div>
+        </div>
+        <div className="flex justify-center">
+          <img src={registerimg} alt="" />
+        </div>
+       </div>
     );
 };
 
