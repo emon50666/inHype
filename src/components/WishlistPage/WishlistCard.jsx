@@ -75,7 +75,7 @@ const WishlistCard = ({wishlist,setWishlist,wishlists}) => {
 WishlistCard.propTypes = {
     wishlist: PropTypes.object,
     setWishlist:PropTypes.array,
-    wishlists: PropTypes
+    wishlists: PropTypes.func
    
   };
 

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
-
+import PropTypes from 'prop-types';
 
 const BlogCard = ({blog}) => {
  const {user} = useContext(AuthContext)
@@ -15,7 +15,7 @@ const BlogCard = ({blog}) => {
       const wishEmail = { ...blog, userEmail: user.email ,blogId:blog._id};
     delete wishEmail._id
       
-      fetch('http://localhost:5000/wishlist', {
+      fetch('https://nimble-trifle-f3a947.netlify.app/wishlist', {
         method: "POST",
         headers: {
           'content-type': "application/json"
@@ -64,6 +64,11 @@ const BlogCard = ({blog}) => {
 </div>
         </div>
     );
+};
+
+BlogCard.propTypes = {
+  blog: PropTypes.object,
+ 
 };
 
 export default BlogCard;

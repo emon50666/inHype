@@ -15,7 +15,7 @@ const AllBlogCard = ({blog}) => {
       const wishEmail = { ...blog, userEmail: user.email ,blogId:blog._id};
     delete wishEmail._id
       
-      fetch('http://localhost:5000/wishlist', {
+      fetch('https://nimble-trifle-f3a947.netlify.app/wishlist', {
         method: "POST",
         headers: {
           'content-type': "application/json"
