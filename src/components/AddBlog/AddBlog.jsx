@@ -62,11 +62,6 @@ const AddBlog = () => {
                 <option>Soup</option>
                 <option>Salad</option>
                 <option>Sweet</option>
-               
-
-
-
-
                 </select> <br />
                 <input type="text" name="shortdesc" placeholder="Short Description" className="input  mb-2 input-bordered  border border-[#9268EB] w-full max-w-xs" /> <br />
                 <textarea name="Description" placeholder="Description" className="textarea  border border-[#9268EB] textarea-bordered textarea-lg w-full max-w-xs" ></textarea> <br />

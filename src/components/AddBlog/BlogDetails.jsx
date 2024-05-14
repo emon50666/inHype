@@ -69,6 +69,7 @@ useEffect(()=>{
         
 
     }
+    console.log(user.email,blog.userEmail)
 
 
     return (
