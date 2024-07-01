@@ -6,6 +6,11 @@ inHype is a modern, full-stack application built with HTML, Tailwind CSS, React,
 - website name: InHype
 - website Category: Food Blog
 
+  - Features:
+  - add a blog
+  - delete blog
+  - add wishlit 
+
 ## Installation
 
 - Clone the repository:
