@@ -15,7 +15,7 @@ inHype is a modern, full-stack application built with HTML, Tailwind CSS, React,
    npm run dev
    Set up Firebase:
 
-1. Technologies
+- Technologies
 Front-end: HTML, Tailwind CSS, React
 Back-end: Node.js, Express.js
 Database: MongoDB
