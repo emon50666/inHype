@@ -8,7 +8,7 @@ inHype is a modern, full-stack application built with HTML, Tailwind CSS, React,
 
 ## Installation
 
-1. **Clone the repository:
+- Clone the repository:
    git clone https://github.com/emon50666/inHype.git
    cd inHype
    npm install
