@@ -3,6 +3,7 @@
 inHype is a modern, full-stack application built with HTML, Tailwind CSS, React, MongoDB, Node.js, Express.js, and Firebase. This project aims to provide a seamless and engaging user experience with cutting-edge web technologies.
 
 - all device responsive
+- user friendy
 - website name: InHype
 - website Category: Food Blog
 
